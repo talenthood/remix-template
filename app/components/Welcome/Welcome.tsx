@@ -1,7 +1,9 @@
-import { Title, Text, Anchor } from "@mantine/core";
+import { Title, Text, Anchor, Tree, useTree } from "@mantine/core";
 import classes from "./Welcome.module.css";
+import { Link } from "@remix-run/react";
 
-export function Welcome() {
+export function Welcome() {  
+  const tree = useTree();
   return (
     <>
       <Title className={classes.title} ta="center" mt={100}>
@@ -24,6 +26,9 @@ export function Welcome() {
         </Anchor>
         . To get started edit index.tsx file.
       </Text>
+
+      <Tree data={[]} tree={tree} />
+      <Link to="/test">Test</Link>
     </>
   );
 }
